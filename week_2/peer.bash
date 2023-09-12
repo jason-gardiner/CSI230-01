@@ -92,4 +92,4 @@ AllowedIPs = 10.254.132.100/32
 wg addconf wg0 <(wg-quick strip wg0)
 
 # Copy contents of wg0.cof to /etc/wireguard
-cp [wg0.conf] /etc/wireguard/wg0.conf
+cp wg0.conf /etc/wireguard/wg0.conf
