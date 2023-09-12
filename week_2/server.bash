@@ -4,7 +4,7 @@
 # Storyline: Script to create a wireguard server
 
 # Determine if config file already exists
-if [[ -f "${pFile}" ]]
+if [[ -f wg0.conf ]]
 then
 	echo "wg0.conf already exists, would you like to override? (y/n)"
 	read user_input
