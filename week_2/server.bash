@@ -29,6 +29,31 @@ peerInfo="# ${address} 192.168.241.131:4282 ${pub} 8.8.8.8,1.1.1.1 1280 120 0.0.
 # 7: keeping connection alive for
 # 8: what traffic to be routed through VPN
 
+# What is the user / peer's name
+echo -n "What is the peer's name?"
+read the_client
+
+# Filename variable
+pFile="${the_client}-wg0.conf"
+
+if [[ -f "${pFile}" ]]
+then
+	echo "wg0.conf already exists, would you like to override? (y/n)"
+	read user_input
+	if [[ "${user_input}" == "n" || "${user_input}" == "N" ]]
+	then
+		echo "Exiting..."
+		exit 0
+	elif [[ "${user_input}" == "y" || "${user_input}" == "Y" ]]
+	then
+		echo "Creating the wireguard configuration file..."
+	# If they don't say yes or no, then give an error
+	else
+		echo "Invalid input"
+		exit 1
+	fi
+fi
+
 echo "${peerInfo}
 [Interface]
 Address = ${ServerAddress}
