@@ -87,3 +87,6 @@ PresharedKey = ${pre}
 AllowedIPs = 10.254.132.100/32 
 # ${the_client} end
 " | tee -a wg0.conf
+
+# Restart the VPN
+wg addconf wg0 <(wg-quick strip wg0)
