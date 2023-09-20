@@ -43,7 +43,7 @@ function menu() {
       
       # Call the main menu
       menu
-    ;;
+	;;
   esac
 }
 
@@ -64,13 +64,13 @@ function security_menu() {
   L|l) netstat -an --inet |less
   ;;
 
-  U|u) 
+  U|u) awk -f ':' '$3 == 0 && $1 != "root" {print $1}' /etc/passwd
   ;;
 
-  R|r) 
+  R|r) last | head -n 10
   ;;
 
-  C|c) 
+  C|c) who
   ;;
   
   M|m) menu
@@ -80,7 +80,7 @@ function security_menu() {
   ;;
 
   *)
-    invalid_opt()
+    invalid_opt
   ;;
   esac
 
@@ -117,14 +117,14 @@ function admin_menu() {
   ;;
 
   *)
-    invalid_opt()
+    invalid_opt
   ;;
   esac
 
   admin_menu
 }
 
-function vpn() {
+function vpn_menu() {
 
   clear
   
@@ -158,7 +158,7 @@ function vpn() {
     ;;
     
     *)
-      invalid_opt()
+      invalid_opt
     ;;
   esac
 
