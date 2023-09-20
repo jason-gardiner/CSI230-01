@@ -3,8 +3,8 @@
 # Storyline: Menu for admin, VPN, and Security functions
 
 # Implement the following
-# 1) Add another switch with an argument that checks to see if the user exists in the wg0.conf file
-# 2) Edit the manage-users.bash script and add the code to delete a user from the wg0.conf file using sed
+# DONE 1) Add another switch with an argument that checks to see if the user exists in the wg0.conf file
+# DONE 2) Edit the manage-users.bash script and add the code to delete a user from the wg0.conf file using sed
 # 3) Create a menu for security admin tasks that performs the tasks:
 #   3a) List open network sockets
 #   3b) Check if any user besides root has a UID of 0
@@ -45,43 +45,84 @@ function menu() {
       menu
     ;;
   esac
-  }
+}
 
-  function admin_menu() {
+function security_menu() {
 
-    clear
-    
-    echo "[L]ist Running Processes"
-    echo "[N]etwork Sockets"
-    echo "[V]PN Menu"
-    echo "[M]ain menu"
-    echo "[E]xit"
-    read -p "Please enter a choice above: " choice
+  clear
 
-    case "$choice" in
+  echo "[L]ist Open Network Sockets"
+  echo "[U]ser UID"
+  echo "[R]ecent 10 Users Logged In"
+  echo "[C]urrently Logged In Users"
+  echo "[M]ain Menu"
+  echo "[E]xit"
+  read -p "Please enter a choice above: " choice
 
-    L|l) ps -ef |less
-    ;;
+  case "$choice" in
 
-    N|n) netstat -an --inet |less
-    ;;
+  L|l) netstat -an --inet |less
+  ;;
 
-    V|v) vpn_menu
-    ;;
+  U|u) 
+  ;;
 
-    M|m) menu
-    ;;
+  R|r) 
+  ;;
 
-    E|e) exit 0
-    ;;
+  C|c) 
+  ;;
+  
+  M|m) menu
+  ;;
 
-    *)
-      invalid_opt()
-    ;;
-    esac
+  E|e) exit 0
+  ;;
 
-    admin_menu
-  }
+  *)
+    invalid_opt()
+  ;;
+  esac
+
+  security_menu
+
+}
+
+function admin_menu() {
+
+  clear
+   
+  echo "[L]ist Running Processes"
+  echo "[N]etwork Sockets"
+  echo "[V]PN Menu"
+  echo "[M]ain menu"
+  echo "[E]xit"
+  read -p "Please enter a choice above: " choice
+
+  case "$choice" in
+
+  L|l) ps -ef |less
+  ;;
+
+  N|n) netstat -an --inet |less
+  ;;
+
+  V|v) vpn_menu
+  ;;
+
+  M|m) menu
+  ;;
+
+  E|e) exit 0
+  ;;
+
+  *)
+    invalid_opt()
+  ;;
+  esac
+
+  admin_menu
+}
 
 function vpn() {
 
