@@ -67,10 +67,10 @@ function security_menu() {
   U|u) awk -f ':' '$3 == 0 && $1 != "root" {print $1}' /etc/passwd
   ;;
 
-  R|r) last | head -n 10
+  R|r) last | head -n 10 | less
   ;;
 
-  C|c) who
+  C|c) who | less
   ;;
   
   M|m) menu
@@ -143,9 +143,9 @@ function vpn_menu() {
     
     ;;
     
-    D|d) # Create a prompt for the user
-    # Call the manage-user.bash
-    # Pass the proper switces and arguement to delete the use
+    D|d)
+    	read -p "What is the name of the user you would like to delete?" username
+    	bash manage-users.bash -d -u $username
     ;;
     
     B|b) admin_menu
