@@ -64,7 +64,7 @@ function security_menu() {
   L|l) netstat -an --inet |less
   ;;
 
-  U|u) awk -f ':' '$3 == 0 && $1 != "root" {print $1}' /etc/passwd
+  U|u) awk -f ':' '$3 == 0 && $1 != "root" {print $1}' /etc/passwd | less
   ;;
 
   R|r) last | head -n 10 | less
@@ -144,8 +144,9 @@ function vpn_menu() {
     ;;
     
     D|d)
-    	read -p "What is the name of the user you would like to delete?" username
+    	read -p "What is the name of the user you would like to delete: " username
     	bash manage-users.bash -d -u $username
+     	sleep 2
     ;;
     
     B|b) admin_menu
