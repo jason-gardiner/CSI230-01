@@ -130,6 +130,7 @@ function vpn_menu() {
   
   echo "[A]dd a peer"
   echo "[D]elete a peer"
+  echo "[C]heck a peer"
   echo "[B]ack to admin menu"
   echo "[M]ain menu"
   echo "[E]xit"
@@ -147,6 +148,17 @@ function vpn_menu() {
     	read -p "What is the name of the user you would like to delete: " username
     	bash manage-users.bash -d -u $username
      	sleep 2
+    ;;
+
+    C|c)
+    	read -p "What is the name of the user you would like to check: " username
+	search=$(cat wg0.conf | grep ${username})
+	if [[ ${search} != ""  ]]
+	then
+ 		echo "The user ${username} exists."
+	else
+		echo "The user ${username} does not exist."
+	fi
     ;;
     
     B|b) admin_menu
