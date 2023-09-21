@@ -159,6 +159,8 @@ function vpn_menu() {
 	else
 		echo "The user ${username} does not exist."
 	fi
+ 	echo ""
+ 	read -p "Press enter to proceed" temp
     ;;
     
     B|b) admin_menu
