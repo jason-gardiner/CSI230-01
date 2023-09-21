@@ -3,13 +3,13 @@
 # Storyline: Menu for admin, VPN, and Security functions
 
 # Implement the following
-# DONE 1) Add another switch with an argument that checks to see if the user exists in the wg0.conf file
+# 1) Add a Check if User Exists in VPN Menu
 # DONE 2) Edit the manage-users.bash script and add the code to delete a user from the wg0.conf file using sed
-# 3) Create a menu for security admin tasks that performs the tasks:
-#   3a) List open network sockets
-#   3b) Check if any user besides root has a UID of 0
-#   3c) Check the last 10 logged in users
-#   3d) See currently logged in users
+# DONE 3) Create a menu for security admin tasks that performs the tasks:
+#   DONE 3a) List open network sockets
+#   DONE 3b) Check if any user besides root has a UID of 0
+#   DONE 3c) Check the last 10 logged in users
+#   DONE 3d) See currently logged in users
 # 4) Create a new user and add the menu as their shell
 
 function invalid_opt() {
@@ -61,13 +61,13 @@ function security_menu() {
 
   case "$choice" in
 
-  L|l) netstat -an --inet |less
+  L|l) netstat -l |less
   ;;
 
-  U|u) awk -f ':' '$3 == 0 && $1 != "root" {print $1}' /etc/passwd | less
+  U|u) cat /etc/passwd | grep "x:0" | less
   ;;
 
-  R|r) last | head -n 10 | less
+  R|r) last -n 10 | less
   ;;
 
   C|c) who | less
