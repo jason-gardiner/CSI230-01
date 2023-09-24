@@ -11,13 +11,12 @@ if [[ -f "${pFile}" ]]
 then 
 	# Prompt if we need to overwrite the file
   echo "The file ${pFile} already exists."
-	echo -n "Do you want to overwrite it? [y|n]"
+	echo -n "Do you want to overwrite it? [y|n] "
 	read to_overwrite
 
 	if [[ "${to_overwrite}" == "N" || "${to_overwrite}" == "" || "${to_overwrite}" == "n"  ]]
 	then
-		echo "Exiting..."
-		exit 0
+		echo "Proceeding with current ${pFile} file..."
 	elif [[ "${to_overwrite}" == "y" ]]
 	then
 		echo "Creating the emerging threats file..."
