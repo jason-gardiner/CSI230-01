@@ -6,7 +6,7 @@
 # 5.134.128.0/19
 
 # If the file exists, don't download it
-pFile="emerging-drop.suricata.rules"
+pFile="/tmp/emerging-drop.suricata.rules"
 if [[ -f "${pFile}" ]]
 then 
 	# Prompt if we need to overwrite the file
