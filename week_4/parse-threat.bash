@@ -16,6 +16,6 @@ do
   # On a mac
   #echo "block in from $(eachIP) to any" | tee -a pf.conf
   
-  echo "iptables -A INPUT -s $(eachIP) -j DROP" | tee -a badIPS.iptables
+  echo "iptables -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.iptables
   
 done
