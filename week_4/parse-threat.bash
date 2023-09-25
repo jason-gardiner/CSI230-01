@@ -30,13 +30,57 @@ fi
 
 egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.0/[0-9]{1,2}' /tmp/emerging-drop.suricata.rules | sort -u | tee badIPs.txt
 
-# Create a Firewall ruleset
-for eachIP  in $(cat badIPs.txt)
-do
+# Select output type\
+function chooseOutputType() {
+	clear
+ 
+	echo "[I]ptables"
+ 	echo "[C]isco"
+ 	echo "[W]indows Firewall"
+ 	echo "[M]ac OS X"
+  	echo "[E]xit"
+   	read -p "Please enter an output type: " choice
+  
+	case "${choice}" in
+ 		I|i)
+  		 # Create a Firewall ruleset
+		for eachIP  in $(cat badIPs.txt)
+		do
 
-  # On a mac
-  #echo "block in from $(eachIP) to any" | tee -a pf.conf
+ 			 # On a mac
+ 			 #echo "block in from $(eachIP) to any" | tee -a pf.conf
   
-  echo "iptables -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.iptables
+ 			 echo "iptables -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.iptables
   
-done
+		done
+   		;;
+   		C|c)
+     		# Create a Firewall ruleset
+		for eachIP  in $(cat badIPs.txt)
+		do
+ 			 echo "cisco -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.cisco
+		done
+     		;;
+     		W|w)
+            	# Create a Firewall ruleset
+		for eachIP  in $(cat badIPs.txt)
+		do
+ 			 echo "windows firewall -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.windowsfirewall
+		done
+       		;;
+       		M|m)
+	      	# Create a Firewall ruleset
+		for eachIP  in $(cat badIPs.txt)
+		do
+ 			 echo "Mac OS X -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.macosx
+		done
+	 	;;
+   		E|e) exit 0
+     		;;
+       		*)
+	 	;;
+   	esac
+    	chooseOutputType
+}
+
+
