@@ -107,6 +107,10 @@ function chooseOutputType() {
    		E|e) exit 0
      		;;
        		*)
+	 	echo ""
+   		echo "Invalid option"
+     		echo ""
+       		sleep 2
 	 	;;
    	esac
     	chooseOutputType
