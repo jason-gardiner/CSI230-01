@@ -54,6 +54,8 @@ function chooseOutputType() {
  			 echo "iptables -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.iptables
   
 		done
+  		echo "Firewall Ruleset Created..."
+    		sleep 2
    		;;
      
    		C|c)
@@ -66,6 +68,7 @@ function chooseOutputType() {
     		rm badips.nocidr
     		clear
     		echo 'Created IP Tables for firewall drop rules in file "badips.cisco"'
+    		sleep 2
      		;;
        
        		P|p)
@@ -79,6 +82,7 @@ function chooseOutputType() {
 		done
     		rm threats.txt
     		echo 'Cisco URL filters file successfully parsed and created at "ciscothreats.txt"'
+    		sleep 2
 	 	;;
    
      		W|w)
@@ -87,6 +91,8 @@ function chooseOutputType() {
 		do
  			 echo "windows firewall -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.windowsfirewall
 		done
+  		echo "Firewall Ruleset Created..."
+    		sleep 2
        		;;
 	 
        		M|m)
@@ -95,6 +101,8 @@ function chooseOutputType() {
 		do
  			 echo "Mac OS X -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.macosx
 		done
+  		echo "Firewall Ruleset Created..."
+    		sleep 2
 	 	;;
    
    		E|e) exit 0
