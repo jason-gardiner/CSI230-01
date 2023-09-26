@@ -36,6 +36,7 @@ function chooseOutputType() {
  
 	echo "[I]ptables"
  	echo "[C]isco"
+  	echo "[P]arse Cisco"
  	echo "[W]indows Firewall"
  	echo "[M]ac OS X"
   	echo "[E]xit"
@@ -54,13 +55,32 @@ function chooseOutputType() {
   
 		done
    		;;
+     
    		C|c)
      		# Create a Firewall ruleset
-		for eachIP  in $(cat badIPs.txt)
-		do
- 			 echo "cisco -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.cisco
-		done
+		egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.0' badips.txt | tee badips.nocidr
+    		for eachip in $(cat badips.nocidr)
+    		do
+        		echo "deny ip host ${eachip} any" | tee -a badips.cisco
+    		done
+    		rm badips.nocidr
+    		clear
+    		echo 'Created IP Tables for firewall drop rules in file "badips.cisco"'
      		;;
+       
+       		P|p)
+	 	# Download new file
+	 	wget https://raw.githubusercontent.com/botherder/targetedthreats/master/targetedthreats.csv -O /tmp/targetedthreats.csv
+    		awk '/domain/ {print}' /tmp/targetedthreats.csv | awk -F \" '{print $4}' | sort -u > threats.txt
+    		echo 'class-map match-any BAD_URLS' | tee ciscothreats.txt
+    		for eachip in $(cat threats.txt)
+    		do
+        		echo "match protocol http host \"${eachip}\"" | tee -a ciscothreats.txt
+		done
+    		rm threats.txt
+    		echo 'Cisco URL filters file successfully parsed and created at "ciscothreats.txt"'
+	 	;;
+   
      		W|w)
             	# Create a Firewall ruleset
 		for eachIP  in $(cat badIPs.txt)
@@ -68,6 +88,7 @@ function chooseOutputType() {
  			 echo "windows firewall -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.windowsfirewall
 		done
        		;;
+	 
        		M|m)
 	      	# Create a Firewall ruleset
 		for eachIP  in $(cat badIPs.txt)
@@ -75,6 +96,7 @@ function chooseOutputType() {
  			 echo "Mac OS X -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.macosx
 		done
 	 	;;
+   
    		E|e) exit 0
      		;;
        		*)
@@ -82,5 +104,7 @@ function chooseOutputType() {
    	esac
     	chooseOutputType
 }
+
+chooseOutputType
 
 
