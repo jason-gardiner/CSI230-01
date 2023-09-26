@@ -75,6 +75,7 @@ function security_menu() {
   ;;
 
   B|b) bash parse-threat.bash
+  ;;
   
   M|m) menu
   ;;
