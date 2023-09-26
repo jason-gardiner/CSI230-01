@@ -66,7 +66,6 @@ function chooseOutputType() {
         		echo "deny ip host ${eachip} any" | tee -a badips.cisco
     		done
     		rm badips.nocidr
-    		clear
     		echo 'Created IP Tables for firewall drop rules in file "badips.cisco"'
     		sleep 2
      		;;
