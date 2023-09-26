@@ -47,12 +47,7 @@ function chooseOutputType() {
   		 # Create a Firewall ruleset
 		for eachIP  in $(cat badIPs.txt)
 		do
-
- 			 # On a mac
- 			 #echo "block in from $(eachIP) to any" | tee -a pf.conf
-  
  			 echo "iptables -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.iptables
-  
 		done
   		echo "Firewall Ruleset Created..."
     		sleep 2
@@ -88,7 +83,7 @@ function chooseOutputType() {
             	# Create a Firewall ruleset
 		for eachIP  in $(cat badIPs.txt)
 		do
- 			 echo "windows firewall -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.windowsfirewall
+ 			 echo "netsh advfirewall firewall add rule name=\"BLOCK IP ADDRESS - ${eachip}\" dir=in action=block remoteip=${eachip}" | tee -a badips.netsh
 		done
   		echo "Firewall Ruleset Created..."
     		sleep 2
@@ -98,7 +93,7 @@ function chooseOutputType() {
 	      	# Create a Firewall ruleset
 		for eachIP  in $(cat badIPs.txt)
 		do
- 			 echo "Mac OS X -A INPUT -s ${eachIP} -j DROP" | tee -a badIPS.macosx
+ 			 echo "block in from $(eachIP) to any" | tee -a pf.conf
 		done
   		echo "Firewall Ruleset Created..."
     		sleep 2
