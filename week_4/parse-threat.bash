@@ -60,7 +60,7 @@ function chooseOutputType() {
      
    		C|c)
      		# Create a Firewall ruleset
-		egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.0' badips.txt | tee badips.nocidr
+		egrep -o '[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.0' badIPs.txt | tee badips.nocidr
     		for eachip in $(cat badips.nocidr)
     		do
         		echo "deny ip host ${eachip} any" | tee -a badips.cisco
