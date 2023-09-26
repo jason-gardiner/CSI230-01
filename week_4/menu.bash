@@ -55,6 +55,7 @@ function security_menu() {
   echo "[U]ser UID"
   echo "[R]ecent 10 Users Logged In"
   echo "[C]urrently Logged In Users"
+  echo "[B]lock List Menu"
   echo "[M]ain Menu"
   echo "[E]xit"
   read -p "Please enter a choice above: " choice
@@ -72,6 +73,8 @@ function security_menu() {
 
   C|c) who | less
   ;;
+
+  B|b) bash parse-threat.bash
   
   M|m) menu
   ;;
