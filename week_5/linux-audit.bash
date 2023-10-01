@@ -37,18 +37,18 @@ fi
 
 # Check permissions for specified files
 check_permissions "/etc/crontab" 600 "Command 1:: 'chown root:root /etc/crontab' Command 2:: 'chmod og-rwx /etc/crontab'."
-check_permissions "/etc/cron.hourly" 700 "Set permissions to 700."
-check_permissions "/etc/cron.daily" 700 "Set permissions to 700."
-check_permissions "/etc/cron.weekly" 700 "Set permissions to 700."
-check_permissions "/etc/cron.monthly" 700 "Set permissions to 700."
-check_permissions "/etc/passwd" 644 "Set permissions to 644."
-check_permissions "/etc/shadow" 400 "Set permissions to 400."
-check_permissions "/etc/group" 644 "Set permissions to 644."
-check_permissions "/etc/gshadow" 400 "Set permissions to 400."
-check_permissions "/etc/passwd-" 600 "Set permissions to 600."
-check_permissions "/etc/shadow-" 600 "Set permissions to 600."
-check_permissions "/etc/group-" 600 "Set permissions to 600."
-check_permissions "/etc/gshadow-" 600 "Set permissions to 600."
+check_permissions "/etc/cron.hourly" 700 "Command 1:: 'chown root:root /etc/cron.hourly' Command 2:: 'chmod og-rwx /etc/cron.hourly'."
+check_permissions "/etc/cron.daily" 700 "Command 1:: 'chown root:root /etc/cron.daily' Command 2:: 'chmod og-rwx /etc/cron.daily'."
+check_permissions "/etc/cron.weekly" 700 "Command 1:: 'chown root:root /etc/cron.weekly' Command 2:: 'chmod og-rwx /etc/cron.weekly'."
+check_permissions "/etc/cron.monthly" 700 "Command 1:: 'chown root:root /etc/cron.monthly' Command 2:: 'chmod og-rwx /etc/cron.monthly'."
+check_permissions "/etc/passwd" 644 "Command 1:: 'chown root:root /etc/passwd' Command 2:: 'chmod 644 /etc/passwd'."
+check_permissions "/etc/shadow" 400 "Command 1:: 'chown root:shadow /etc/shadow' Command 2:: 'chmod o-rwx,g-wx /etc/shadow'."
+check_permissions "/etc/group" 644 "Command 1:: 'chown root:root /etc/group' Command 2:: 'chmod 644 /etc/group'."
+check_permissions "/etc/gshadow" 400 "Command 1:: 'chown root:shadow /etc/gshadow' Command 2:: 'chmod o-rwx,g-rw /etc/gshadow'."
+check_permissions "/etc/passwd-" 600 "Command 1:: 'chown root:root /etc/passwd-' Command 2:: 'chmod u-x,go-wx /etc/passwd-'."
+check_permissions "/etc/shadow-" 600 "Command 1:: 'chown root:shadow /etc/shadow-' Command 2:: 'chmod o-rwx,g-rw /etc/shadow-'."
+check_permissions "/etc/group-" 600 "Command 1:: 'chown root:root /etc/group-' Command 2:: 'chmod u-x,go-wx /etc/group-'."
+check_permissions "/etc/gshadow-" 600 "Command 1:: 'chown root:shadow /etc/gshadow-' Command 2:: 'chmod o-rwx,g-rw /etc/gshadow-'."
 
 # Check for legacy "+" entries
 if grep -qE '^\+.*$' /etc/passwd
