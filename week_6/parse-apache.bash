@@ -22,3 +22,5 @@ do
   # Add the IPTables rule to block incoming traffic from the IP
   echo "iptables -A INPUT -s $IP -j DROP" | tee -a badIPS.iptables
 done
+
+echo "IPTables Ruleset Created"
