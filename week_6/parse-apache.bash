@@ -23,4 +23,5 @@ do
   echo "iptables -A INPUT -s $IP -j DROP" | tee -a badIPS.iptables
 done
 
+echo ""
 echo "IPTables Ruleset Created"
