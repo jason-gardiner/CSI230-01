@@ -1,14 +1,12 @@
 #!/bin/bash
 
-# Storyline: Parses Apache Log for bad IP Addresses
-
-# Define the path to the Apache log file
-read -p "Please enter an apache log file." tFile
+# Storyline: Parses Apache Logs for bad IP Addresses
 
 # Check if the Apache log file exists
+read -p "Please enter an apache log file." tFile
 if [[ ! -f ${tFile} ]]
 then
-  echo "File doesn't exists."
+  echo "File doesn't exist."
   exit 1
 fi
 
@@ -19,7 +17,7 @@ badIps=$(awk '{print $1}' "$tFile" | sort -u)
 for IP in $badIps
 do
   # Add the IPTables rule to block incoming traffic from the IP
-  echo "iptables -A INPUT -s $IP -j DROP" | tee -a badIPS.iptables
+  echo "iptables -A INPUT -s $IP -j DROP" | tee -a ${tFile}-badIPS.iptables
 done
 
 echo ""
