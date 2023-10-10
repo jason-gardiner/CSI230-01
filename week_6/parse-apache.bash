@@ -3,7 +3,7 @@
 # Storyline: Parses Apache Log for bad IP Addresses
 
 # Define the path to the Apache log file
-pFile="access.log.txt"
+pFile="/access.log.txt"
 
 # Check if the Apache log file exists
 if [ ! -f "$pFile" ]
