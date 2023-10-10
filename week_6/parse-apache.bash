@@ -4,7 +4,7 @@
 
 # Define the path to the Apache log file
 #pFile="access.log.txt"
-cat "parse-apache.bash"
+cat "access.log.txt"
 
 # Check if the Apache log file exists
 #if [ ! -f "$pFile" ]
