@@ -14,7 +14,7 @@ then
 fi
 
 # Parse the Apache log file to extract unique IP addresses
-#badIps=$(awk '{print $1}' "$pFile" | sort -u)
+badIps=$(awk '{print $1}' "$pFile" | sort -u)
 
 # Add IPTables rules for each IP address
 #for IP in $badIps
