@@ -3,18 +3,17 @@
 # Storyline: Parses Apache Log for bad IP Addresses
 
 # Define the path to the Apache log file
-pFile="access.log.txt"
-#cat "access.log.txt"
+read -p "Please enter an apache log file." tFile
 
 # Check if the Apache log file exists
-if [ ! -f "$pFile" ]
+if [[ ! -f ${tFile} ]]
 then
-  echo "Apache log file not found. Exiting."
+  echo "File doesn't exists."
   exit 1
 fi
 
 # Parse the Apache log file to extract unique IP addresses
-badIps=$(awk '{print $1}' "$pFile" | sort -u)
+badIps=$(awk '{print $1}' "$tFile" | sort -u)
 
 # Add IPTables rules for each IP address
 for IP in $badIps
