@@ -17,8 +17,8 @@ fi
 badIps=$(awk '{print $1}' "$pFile" | sort -u)
 
 # Add IPTables rules for each IP address
-#for IP in $badIps
-#do
+for IP in $badIps
+do
   # Add the IPTables rule to block incoming traffic from the IP
-  #echo "iptables -A INPUT -s $IP -j DROP" | tee -a badIPS.iptables
-#done
+  echo "iptables -A INPUT -s $IP -j DROP" | tee -a badIPS.iptables
+done
