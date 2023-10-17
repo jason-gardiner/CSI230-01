@@ -1,0 +1,111 @@
+"EventID","MachineName","Data","Index","Category","CategoryNumber","EntryType","Message","Source","ReplacementStrings","InstanceId","TimeGenerated","TimeWritten","UserName","Site","Container"
+"5379","DESKTOP-596PFOQ","System.Byte[]","9652","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8100
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:09 PM","10/17/2023 2:19:09 PM",,,
+"5379","DESKTOP-596PFOQ","System.Byte[]","9651","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8100
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:09 PM","10/17/2023 2:19:09 PM",,,
+"5379","DESKTOP-596PFOQ","System.Byte[]","9650","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8100
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:09 PM","10/17/2023 2:19:09 PM",,,
+"5379","DESKTOP-596PFOQ","System.Byte[]","9649","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8100
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:09 PM","10/17/2023 2:19:09 PM",,,
+"5379","DESKTOP-596PFOQ","System.Byte[]","9648","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8100
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:08 PM","10/17/2023 2:19:08 PM",,,
+"5379","DESKTOP-596PFOQ","System.Byte[]","9647","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8100
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:08 PM","10/17/2023 2:19:08 PM",,,
+"5379","DESKTOP-596PFOQ","System.Byte[]","9646","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8100
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:08 PM","10/17/2023 2:19:08 PM",,,
+"5379","DESKTOP-596PFOQ","System.Byte[]","9645","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8100
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:08 PM","10/17/2023 2:19:08 PM",,,
+"5379","DESKTOP-596PFOQ","System.Byte[]","9644","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8100
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:08 PM","10/17/2023 2:19:08 PM",,,
+"5379","DESKTOP-596PFOQ","System.Byte[]","9643","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8099
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:08 PM","10/17/2023 2:19:08 PM",,,
+"5379","DESKTOP-596PFOQ","System.Byte[]","9640","(13824)","13824","SuccessAudit","Credential Manager credentials were read.
+
+Subject:
+	Security ID:		S-1-5-19
+	Account Name:		LOCAL SERVICE
+	Account Domain:		NT AUTHORITY
+	Logon ID:		0x3e5
+	Read Operation:		%%8100
+
+This event occurs when a user performs a read operation on stored credentials in Credential Manager.","Microsoft-Windows-Security-Auditing","System.String[]","5379","10/17/2023 2:19:08 PM","10/17/2023 2:19:08 PM",,,
