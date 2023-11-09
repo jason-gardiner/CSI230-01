@@ -16,11 +16,13 @@ function Get-SavePath {
 
         switch ($choice) {
             '1' {
+                # This default choice is to make this process quick unless you want the files in some other spot of your computer
                 $savePath = "$PSScriptRoot\Results"
                 $validChoice = $true
             }
             '2' {
                 $customPath = Read-Host "Enter the custom path"
+                # Make sure the custom path works, if not then give the user the ability to try again
                 if (Test-Path $customPath) {
                     $savePath = $customPath
                     $validChoice = $true
@@ -58,30 +60,35 @@ function Show-Menu {
 
     switch ($choice) {
         '1' {
+            # Record Running Processes and their Paths into a .csv file
             $savePath = Get-SavePath -description "RunningProcesses"
             Get-Process | Select-Object ProcessName, Path | Export-Csv -Path $savePath -NoTypeInformation
             Write-Host "Running processes saved to $savePath."
             Continue-Menu
         }
         '2' {
+            # Record Registered Services and their Executable Paths into a .csv file
             $savePath = Get-SavePath -description "RegisteredServices"
             Get-WmiObject Win32_Service | Select-Object DisplayName, PathName | Export-Csv -Path $savePath -NoTypeInformation
             Write-Host "Registered services saved to $savePath."
             Continue-Menu
         }
         '3' {
+            # Record TCP Network Sockets into a .csv file
             $savePath = Get-SavePath -description "NetworkSockets"
             Get-NetTCPConnection | Export-Csv -Path $savePath -NoTypeInformation
             Write-Host "Network sockets saved to $savePath."
             Continue-Menu
         }
         '4' {
+            # Record User Account Information into a .csv file
             $savePath = Get-SavePath -description "UserAccounts"
             Get-WmiObject Win32_UserAccount | Select-Object Name, Domain, LocalAccount | Export-Csv -Path $savePath -NoTypeInformation
             Write-Host "User accounts saved to $savePath."
             Continue-Menu
         }
         '5' {
+            # Record Network Adapter Configuration into a .csv file
             $savePath = Get-SavePath -description "NetworkAdapterConfiguration"
             Get-WmiObject Win32_NetworkAdapterConfiguration | Select-Object Description, IPAddress, MACAddress |
                 Export-Csv -Path $savePath -NoTypeInformation
@@ -89,6 +96,8 @@ function Show-Menu {
             Continue-Menu
         }
         '6' {
+            # Record Security Events into a .csv file
+            # I chose Security Events because it seemed like important data
             $savePath = Get-SavePath -description "SecurityEvents"
             Get-WinEvent -LogName Security -MaxEvents 1000 | Select-Object TimeCreated, Id, Message |
                 Export-Csv -Path $savePath -NoTypeInformation
@@ -96,6 +105,8 @@ function Show-Menu {
             Continue-Menu
         }
         '7' {
+            # Record Installed Programs into a .csv file
+            # I chose Installed Programs because it was interesting
             $savePath = Get-SavePath -description "InstalledPrograms"
             Get-ItemProperty HKLM:\Software\Wow6432Node\Microsoft\Windows\CurrentVersion\Uninstall\* |
                 Select-Object DisplayName, DisplayVersion, Publisher, InstallDate | Export-Csv -Path $savePath -NoTypeInformation
@@ -103,18 +114,22 @@ function Show-Menu {
             Continue-Menu
         }
         '8' {
+            # Record Running Processes and their Paths into a .csv file
             $savePath = Get-SavePath -description "RunningServices"
             Get-Service | Select-Object DisplayName, ServiceName, StartType, Status | Export-Csv -Path $savePath -NoTypeInformation
             Write-Host "Running services saved to $savePath."
             Continue-Menu
         }
         '9' {
+            # Record Running Services into a .csv file
+            # I chose Running Services because I wasn't quite sure what it meant, and I wanted to figure it out
             $savePath = Get-SavePath -description "NetworkConnections"
             Get-NetTCPConnection | Export-Csv -Path $savePath -NoTypeInformation
             Write-Host "Network connections saved to $savePath."
             Continue-Menu
         }
         '10' {
+            # Record File Hashes into a .csv file
              $resultsDirectory = "$PSScriptRoot\Results"
              
              $csvFiles = Get-ChildItem -Path $resultsDirectory -Filter *.csv
@@ -149,6 +164,7 @@ function Show-Menu {
             Continue-Menu
         }
         '11' {
+            # Zips up the Results folder
             $resultsDirectory = "$PSScriptRoot\Results"
             
             $zipFilePath = "$PSScriptRoot\Results.zip"
