@@ -99,6 +99,7 @@ function Show-Menu {
             # Record Security Events into a .csv file
             # I chose Security Events because it seemed like important data
             $savePath = Get-SavePath -description "SecurityEvents"
+            Write-Host "This may take a while, please be patient"
             Get-WinEvent -LogName Security -MaxEvents 1000 | Select-Object TimeCreated, Id, Message |
                 Export-Csv -Path $savePath -NoTypeInformation
             Write-Host "Security events saved to $savePath."
